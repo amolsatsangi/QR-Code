@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>QR Code Generator</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .container {
+                background-color: white;
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                width: 400px;
+            }
+            .title h1 {
+                font-size: 24px;
+                color: #333;
+            }
+            .title h2 {
+                font-size: 16px;
+                color: #666;
+                margin-bottom: 20px;
+            }
+            form {
+                margin-bottom: 20px;
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            button {
+                background-color: #28a745;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            button:hover {
+                background-color: #218838;
+            }
+            .generated img {
+                margin-top: 20px;
+                width: 200px;
+                height: 200px;
+                border: 1px solid #ccc;
+                padding: 10px;
+                background-color: #fff;
+            }
+            .generated p {
+                margin-top: 10px;
+                font-size: 14px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <h1>QR Code Generator</h1>
+                <h2>Insert a link below to generate a QR code</h2>
+            </div>
+            <form action="/" method="POST">
+                <input type="text" name="link" placeholder="Enter your link">
+                <button type="submit">Generate QR code</button>
+            </form>
+            <div class="generated">
+                {% if data %}
+                    <img src="{{ data }}" alt="Generated QR Code">
+                    <p>Here is the QR code for you:</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
